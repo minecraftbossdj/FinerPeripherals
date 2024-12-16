@@ -4,13 +4,17 @@ import com.awesoft.finerperipherals.blocks.chatbox.chatBoxBlock;
 import com.awesoft.finerperipherals.blocks.chatbox.chatBoxBlockEntity;
 import com.awesoft.finerperipherals.blocks.chatbox.chatBoxPeripheral;
 import com.awesoft.finerperipherals.blocks.chatbox.pocket.ChatBoxUpgrade;
-import com.awesoft.finerperipherals.blocks.chatbox.pocket.chatBoxPeripheralPocket;
 import com.awesoft.finerperipherals.events.ChatEvent;
 import dan200.computercraft.api.ComputerCraftAPI;
 import dan200.computercraft.api.peripheral.PeripheralLookup;
 import dan200.computercraft.api.pocket.IPocketUpgrade;
 import dan200.computercraft.api.pocket.PocketUpgradeDataProvider;
 import dan200.computercraft.api.pocket.PocketUpgradeSerialiser;
+import dan200.computercraft.impl.PocketUpgrades;
+import dan200.computercraft.shared.platform.PlatformHelper;
+import dan200.computercraft.shared.platform.RegistrationHelper;
+import dan200.computercraft.shared.platform.RegistryEntry;
+import dan200.computercraft.shared.pocket.peripherals.PocketSpeaker;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -33,6 +37,7 @@ import java.util.HashMap;
 public class FinerPeripherals implements ModInitializer {
     public static final Logger LOGGER = LoggerFactory.getLogger("finerperipherals");
 
+    static String MODID = "finerperipherals";
 
     public static final CreativeModeTab TAB = FabricItemGroup.builder()
             .icon(() -> new ItemStack(FinerPeripherals.CHATBOX_BLOCK))
@@ -60,10 +65,10 @@ public class FinerPeripherals implements ModInitializer {
     private void registerItems()
     {
         int v = BuiltInRegistries.ITEM.size();
-        
+
         //register block items
         Registry.register(BuiltInRegistries.ITEM,new ResourceLocation("finerperipherals","chatbox"),new BlockItem(CHATBOX_BLOCK,new Item.Properties()));
-        
+
         for (int i = v; i < BuiltInRegistries.ITEM.size(); i++) {
             int finalI = i;
             ItemGroupEvents.modifyEntriesEvent(BuiltInRegistries.CREATIVE_MODE_TAB.getResourceKey(TAB).get()).register(a->
@@ -78,18 +83,18 @@ public class FinerPeripherals implements ModInitializer {
     private void registerPeripherals()
     {
         PeripheralLookup.get().registerForBlockEntity((a,b)->new chatBoxPeripheral(a),CHATBOX_BE);
-        PeripheralLookup.get().registerForBlockEntity((a,b)->new chatBoxPeripheralPocket(),CHATBOX_BE);
-        final PocketUpgradeSerialiser<ChatBoxUpgrade> CHATBOX_UPGRADE =  PocketUpgradeSerialiser.simpleWithCustomItem(
-                (id, itemStack) -> new ChatBoxUpgrade()  // Create the upgrade from the item
-        );
 
 
+         final RegistrationHelper<PocketUpgradeSerialiser<?>> REGISTRY = PlatformHelper.get().createRegistrationHelper(PocketUpgradeSerialiser.registryId());
+
+         final RegistryEntry<PocketUpgradeSerialiser<ChatBoxUpgrade>> CHATBOX_UPGRADE =
+                REGISTRY.register("chatbox_upgrade", () -> PocketUpgradeSerialiser.simpleWithCustomItem((id, stack) -> new ChatBoxUpgrade(new ResourceLocation(FinerPeripherals.MODID, "chatbox_upgrade"), "chatbox_upgrade", stack)));
 
     }
 
     public static BlockEntityType<chatBoxBlockEntity> CHATBOX_BE = Registry.register(
             BuiltInRegistries.BLOCK_ENTITY_TYPE,
-            new ResourceLocation("finerperipherals", "drone_workbench_block_entity"),
+            new ResourceLocation("finerperipherals", "chatbox_block_entity"),
             FabricBlockEntityTypeBuilder.create(chatBoxBlockEntity::new, CHATBOX_BLOCK).build()
     );
 }
