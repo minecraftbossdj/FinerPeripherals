@@ -3,8 +3,14 @@ package com.awesoft.finerperipherals;
 import com.awesoft.finerperipherals.blocks.chatbox.chatBoxBlock;
 import com.awesoft.finerperipherals.blocks.chatbox.chatBoxBlockEntity;
 import com.awesoft.finerperipherals.blocks.chatbox.chatBoxPeripheral;
+import com.awesoft.finerperipherals.blocks.chatbox.pocket.ChatBoxUpgrade;
+import com.awesoft.finerperipherals.blocks.chatbox.pocket.chatBoxPeripheralPocket;
 import com.awesoft.finerperipherals.events.ChatEvent;
+import dan200.computercraft.api.ComputerCraftAPI;
 import dan200.computercraft.api.peripheral.PeripheralLookup;
+import dan200.computercraft.api.pocket.IPocketUpgrade;
+import dan200.computercraft.api.pocket.PocketUpgradeDataProvider;
+import dan200.computercraft.api.pocket.PocketUpgradeSerialiser;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -66,11 +72,19 @@ public class FinerPeripherals implements ModInitializer {
             });
         }
     }
-    
+
+
 
     private void registerPeripherals()
     {
         PeripheralLookup.get().registerForBlockEntity((a,b)->new chatBoxPeripheral(a),CHATBOX_BE);
+        PeripheralLookup.get().registerForBlockEntity((a,b)->new chatBoxPeripheralPocket(),CHATBOX_BE);
+        final PocketUpgradeSerialiser<ChatBoxUpgrade> CHATBOX_UPGRADE =  PocketUpgradeSerialiser.simpleWithCustomItem(
+                (id, itemStack) -> new ChatBoxUpgrade()  // Create the upgrade from the item
+        );
+
+
+
     }
 
     public static BlockEntityType<chatBoxBlockEntity> CHATBOX_BE = Registry.register(

@@ -1,7 +1,11 @@
 package com.awesoft.finerperipherals.blocks.chatbox;
 
+import dan200.computercraft.api.lua.LuaFunction;
+import dan200.computercraft.api.lua.MethodResult;
 import dan200.computercraft.api.peripheral.IComputerAccess;
 import dan200.computercraft.api.peripheral.IPeripheral;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import org.jetbrains.annotations.NotNull;
 
@@ -38,4 +42,21 @@ public class chatBoxPeripheral implements IPeripheral {
     public void detach(@NotNull IComputerAccess computer) {
         chatBoxAttachedManager.getInstance().removeComputer(computer);
     }
+
+    @LuaFunction
+    public final MethodResult sendMessage(String msg) {
+        blockEntity.getLevel().getServer().getPlayerList().getPlayers().forEach(player -> {
+            // Now, send the message
+            // To send a message, we need a Component(In this case a literal text component).
+            player.sendSystemMessage(Component.literal(msg));
+        });
+        return MethodResult.of(true);
+    }
+
+    @LuaFunction
+    public final MethodResult sendMessageToPlayer(String msg, String plr) {
+        blockEntity.getLevel().getServer().getPlayerList().getPlayerByName(plr).sendSystemMessage(Component.literal(msg));
+        return MethodResult.of(true);
+    }
+
 }
