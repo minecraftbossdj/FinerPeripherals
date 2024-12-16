@@ -10,6 +10,7 @@ import dan200.computercraft.api.peripheral.PeripheralLookup;
 import dan200.computercraft.api.pocket.IPocketUpgrade;
 import dan200.computercraft.api.pocket.PocketUpgradeDataProvider;
 import dan200.computercraft.api.pocket.PocketUpgradeSerialiser;
+import dan200.computercraft.api.upgrades.UpgradeBase;
 import dan200.computercraft.impl.PocketUpgrades;
 import dan200.computercraft.shared.platform.PlatformHelper;
 import dan200.computercraft.shared.platform.RegistrationHelper;
@@ -48,11 +49,14 @@ public class FinerPeripherals implements ModInitializer {
     @Override
     public void onInitialize() {
 
+        LOGGER.info("hello!");
         new ChatEvent().onInitialize();
         Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB,new ResourceLocation("finerperipherals","tab"),TAB);
         registerBlocks();
         registerPeripherals();
         registerItems();
+        PocketRegistry.register();
+
 
     }
 
@@ -85,12 +89,9 @@ public class FinerPeripherals implements ModInitializer {
         PeripheralLookup.get().registerForBlockEntity((a,b)->new chatBoxPeripheral(a),CHATBOX_BE);
 
 
-         final RegistrationHelper<PocketUpgradeSerialiser<?>> REGISTRY = PlatformHelper.get().createRegistrationHelper(PocketUpgradeSerialiser.registryId());
-
-         final RegistryEntry<PocketUpgradeSerialiser<ChatBoxUpgrade>> CHATBOX_UPGRADE =
-                REGISTRY.register("chatbox_upgrade", () -> PocketUpgradeSerialiser.simpleWithCustomItem((id, stack) -> new ChatBoxUpgrade(new ResourceLocation(FinerPeripherals.MODID, "chatbox_upgrade"), "chatbox_upgrade", stack)));
 
     }
+
 
     public static BlockEntityType<chatBoxBlockEntity> CHATBOX_BE = Registry.register(
             BuiltInRegistries.BLOCK_ENTITY_TYPE,

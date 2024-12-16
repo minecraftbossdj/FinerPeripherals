@@ -1,5 +1,6 @@
-package com.awesoft.finerperipherals.blocks.chatbox;
+package com.awesoft.finerperipherals.blocks.chatbox.pocket;
 
+import com.awesoft.finerperipherals.blocks.chatbox.chatBoxAttachedManager;
 import dan200.computercraft.api.lua.LuaFunction;
 import dan200.computercraft.api.lua.MethodResult;
 import dan200.computercraft.api.peripheral.IComputerAccess;
@@ -21,13 +22,14 @@ public class chatBoxPeripheralPocket implements IPeripheral {
 
     @Override
     public String getType() {
-        return "chatBox";
+        return "chatbox";
     }
 
     @Override
     public boolean equals(IPeripheral other) {
         return other instanceof chatBoxPeripheralPocket;
     }
+
 
 
 
