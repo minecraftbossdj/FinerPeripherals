@@ -56,6 +56,7 @@ public class FinerPeripherals implements ModInitializer {
         registerPeripherals();
         registerItems();
         PocketRegistry.register();
+        TurtleRegistry.register();
 
 
     }
@@ -87,9 +88,6 @@ public class FinerPeripherals implements ModInitializer {
     private void registerPeripherals()
     {
         PeripheralLookup.get().registerForBlockEntity((a,b)->new chatBoxPeripheral(a),CHATBOX_BE);
-
-
-
     }
 
 
