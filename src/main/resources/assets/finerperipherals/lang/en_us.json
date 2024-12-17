@@ -1,3 +1,6 @@
 {
-  "block.finerperipherals.chatbox": "Chat Box"
+  "block.finerperipherals.chatbox": "Chat Box",
+  "upgrade.finerperipherals.chatbox_pocket.adjective": "Chatty",
+  "upgrade.finerperipherals.chatbox_turtle.adjective": "Chatty",
+  "upgrade.finerperipherals.compass_turtle.adjective": "Directionally Aware"
 }

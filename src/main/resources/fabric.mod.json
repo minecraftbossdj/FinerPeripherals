@@ -5,7 +5,7 @@
 	"name": "Finer Peripherals",
 	"description": "yeaaa... ngl idk what this....",
 	"authors": [
-		"Me!"
+		"awesomebossdj7"
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
@@ -20,6 +20,9 @@
 				"value": "com.awesoft.finerperipherals.FinerPeripherals",
 				"adapter": "kotlin"
 			}
+		],
+		"client": [
+			"com.awesoft.finerperipherals.client.turtle.FinerPeripheralsClient"
 		]
 	},
 	"depends": {

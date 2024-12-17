@@ -1,9 +1,12 @@
-package com.awesoft.finerperipherals.blocks.chatbox.turtle;
+package com.awesoft.finerperipherals.peripherals.chatbox.turtle;
 
 import com.awesoft.finerperipherals.FinerPeripherals;
-import com.awesoft.finerperipherals.blocks.chatbox.chatBoxPeripheral;
+import com.awesoft.finerperipherals.peripherals.chatbox.chatBoxPeripheral;
+import dan200.computercraft.api.lua.LuaFunction;
+import dan200.computercraft.api.lua.MethodResult;
 import dan200.computercraft.api.peripheral.IPeripheral;
 import dan200.computercraft.api.turtle.*;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -16,7 +19,6 @@ public class chatBoxTurtle extends AbstractTurtleUpgrade {
         public Peripheral(BlockEntity entity) {
             super(entity);
             this.entity = entity;
-            FinerPeripherals.LOGGER.info("turtle periph constructor yeaaaaaaaaa");
         }
 
 
@@ -30,13 +32,13 @@ public class chatBoxTurtle extends AbstractTurtleUpgrade {
 
     public chatBoxTurtle(ResourceLocation id, TurtleUpgradeType type, ItemStack stack) {
         super(id, type, stack);
-        FinerPeripherals.LOGGER.info("turtle constructor yeaaaaaaaaa");
     }
 
     @Override
     public IPeripheral createPeripheral(ITurtleAccess turtle, TurtleSide side) {
-        FinerPeripherals.LOGGER.info("create periph yeaaaaaaaa");
         return new Peripheral(turtle.getLevel().getBlockEntity(turtle.getPosition()));
     }
+
+
 
 }

@@ -1,7 +1,7 @@
 package com.awesoft.finerperipherals.events;
 
 
-import com.awesoft.finerperipherals.blocks.chatbox.chatBoxAttachedManager;
+import com.awesoft.finerperipherals.peripherals.chatbox.chatBoxAttachedManager;
 import dan200.computercraft.api.peripheral.IComputerAccess;
 import net.fabricmc.fabric.api.message.v1.ServerMessageEvents;
 import net.minecraft.server.level.ServerPlayer;
@@ -18,9 +18,10 @@ public class ChatEvent {
                 // Extract the chat message
                 String chatMessage = message.signedContent();
                 String user = player.getName().getString();
+                String uuid = player.getStringUUID();
 
                 // Send the event to all computers with the chat_data peripheral
-                sendMessageToComputersWithPeripheral(user, chatMessage);
+                sendMessageToComputersWithPeripheral(user, chatMessage, uuid);
             }
         });
     }
@@ -42,7 +43,7 @@ public class ChatEvent {
     }
 */
 
-    private static void sendMessageToComputersWithPeripheral(String user, String message) {
+    private static void sendMessageToComputersWithPeripheral(String user, String message, String uuid) {
         // Get the instance of the PeripheralManager (singleton)
         chatBoxAttachedManager manager = chatBoxAttachedManager.getInstance();
 
@@ -51,13 +52,13 @@ public class ChatEvent {
 
         // Loop through the connected computers and queue the event for each
         for (IComputerAccess computer : connectedComputers) {
-            sendMessageToComputer(computer, user, message);
+            sendMessageToComputer(computer, user, message, uuid);
         }
     }
 
-    private static void sendMessageToComputer(IComputerAccess computer, String playerUsername, String message) {
+    private static void sendMessageToComputer(IComputerAccess computer, String playerUsername, String message, String uuid) {
         // Send an event to the computer's peripheral (you can queue events here)
-        computer.queueEvent("chat", playerUsername, message);
+        computer.queueEvent("chat", playerUsername, message, uuid);
     }
 
 }

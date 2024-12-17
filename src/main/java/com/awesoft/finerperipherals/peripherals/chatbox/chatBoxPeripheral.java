@@ -1,12 +1,14 @@
-package com.awesoft.finerperipherals.blocks.chatbox;
+package com.awesoft.finerperipherals.peripherals.chatbox;
 
 import dan200.computercraft.api.lua.LuaFunction;
 import dan200.computercraft.api.lua.MethodResult;
 import dan200.computercraft.api.peripheral.IComputerAccess;
 import dan200.computercraft.api.peripheral.IPeripheral;
-import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
+import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import org.jetbrains.annotations.NotNull;
 
 public class chatBoxPeripheral implements IPeripheral {
@@ -58,5 +60,4 @@ public class chatBoxPeripheral implements IPeripheral {
         blockEntity.getLevel().getServer().getPlayerList().getPlayerByName(plr).sendSystemMessage(Component.literal(msg));
         return MethodResult.of(true);
     }
-
 }

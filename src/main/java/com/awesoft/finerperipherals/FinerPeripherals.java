@@ -1,21 +1,10 @@
 package com.awesoft.finerperipherals;
 
-import com.awesoft.finerperipherals.blocks.chatbox.chatBoxBlock;
-import com.awesoft.finerperipherals.blocks.chatbox.chatBoxBlockEntity;
-import com.awesoft.finerperipherals.blocks.chatbox.chatBoxPeripheral;
-import com.awesoft.finerperipherals.blocks.chatbox.pocket.ChatBoxUpgrade;
+import com.awesoft.finerperipherals.peripherals.chatbox.chatBoxBlock;
+import com.awesoft.finerperipherals.peripherals.chatbox.chatBoxBlockEntity;
+import com.awesoft.finerperipherals.peripherals.chatbox.chatBoxPeripheral;
 import com.awesoft.finerperipherals.events.ChatEvent;
-import dan200.computercraft.api.ComputerCraftAPI;
 import dan200.computercraft.api.peripheral.PeripheralLookup;
-import dan200.computercraft.api.pocket.IPocketUpgrade;
-import dan200.computercraft.api.pocket.PocketUpgradeDataProvider;
-import dan200.computercraft.api.pocket.PocketUpgradeSerialiser;
-import dan200.computercraft.api.upgrades.UpgradeBase;
-import dan200.computercraft.impl.PocketUpgrades;
-import dan200.computercraft.shared.platform.PlatformHelper;
-import dan200.computercraft.shared.platform.RegistrationHelper;
-import dan200.computercraft.shared.platform.RegistryEntry;
-import dan200.computercraft.shared.pocket.peripherals.PocketSpeaker;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;

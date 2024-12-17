@@ -1,13 +1,12 @@
-package com.awesoft.finerperipherals.blocks.chatbox.pocket;
+package com.awesoft.finerperipherals.peripherals.chatbox.pocket;
 
-import com.awesoft.finerperipherals.blocks.chatbox.chatBoxAttachedManager;
+import com.awesoft.finerperipherals.peripherals.chatbox.chatBoxAttachedManager;
 import dan200.computercraft.api.lua.LuaFunction;
 import dan200.computercraft.api.lua.MethodResult;
 import dan200.computercraft.api.peripheral.IComputerAccess;
 import dan200.computercraft.api.peripheral.IPeripheral;
 import dan200.computercraft.api.pocket.IPocketAccess;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.entity.Entity;
 import org.jetbrains.annotations.NotNull;
 
 public class chatBoxPeripheralPocket implements IPeripheral {

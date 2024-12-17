@@ -1,4 +1,4 @@
-package com.awesoft.finerperipherals.blocks.chatbox;
+package com.awesoft.finerperipherals.peripherals.chatbox;
 
 import dan200.computercraft.api.peripheral.IComputerAccess;
 

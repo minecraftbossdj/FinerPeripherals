@@ -1,4 +1,4 @@
-package com.awesoft.finerperipherals.blocks.chatbox;
+package com.awesoft.finerperipherals.peripherals.chatbox;
 
 import com.awesoft.finerperipherals.FinerPeripherals;
 import net.minecraft.core.BlockPos;
