@@ -26,6 +26,7 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import org.slf4j.Logger;
@@ -80,10 +81,10 @@ public class FinerPeripherals implements ModInitializer {
         );
     */
 
-    public static final chatBoxBlock CHATBOX_BLOCK = new chatBoxBlock(BlockBehaviour.Properties.of());
-    public static final geoExplorerBlock GEOEXPLORER_BLOCK = new geoExplorerBlock(BlockBehaviour.Properties.of());
-    public static final eventRelayerBlock EVENTRELAYER_BLOCK = new eventRelayerBlock(BlockBehaviour.Properties.of());
-    public static final holoItemDisplayBlock HOLOITEMDISPLAY_BLOCK = new holoItemDisplayBlock(BlockBehaviour.Properties.of());
+    public static final chatBoxBlock CHATBOX_BLOCK = new chatBoxBlock(BlockBehaviour.Properties.copy(Blocks.STONE));
+    public static final geoExplorerBlock GEOEXPLORER_BLOCK = new geoExplorerBlock(BlockBehaviour.Properties.copy(Blocks.STONE));
+    public static final eventRelayerBlock EVENTRELAYER_BLOCK = new eventRelayerBlock(BlockBehaviour.Properties.copy(Blocks.STONE));
+    public static final holoItemDisplayBlock HOLOITEMDISPLAY_BLOCK = new holoItemDisplayBlock(BlockBehaviour.Properties.copy(Blocks.STONE));
 
     private void registerBlocks()
     {

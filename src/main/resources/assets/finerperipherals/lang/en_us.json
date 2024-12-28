@@ -8,5 +8,6 @@
   "upgrade.finerperipherals.geoexplorer_pocket.adjective": "Geological",
   "block.finerperipherals.eventrelayer": "Event Relayer",
   "upgrade.finerperipherals.eventrelayer_turtle.adjective": "Linked",
-  "upgrade.finerperipherals.eventrelayer_pocket.adjective": "Linked"
+  "upgrade.finerperipherals.eventrelayer_pocket.adjective": "Linked",
+  "block.finerperipherals.holoitemdisplay": "Holographic Item Display"
 }

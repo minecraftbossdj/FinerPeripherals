@@ -61,7 +61,7 @@ public class holoItemDisplayBlock extends BaseEntityBlock {
     @Override
     public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
         Direction facing = state.getValue(FACING); // Get the block's facing direction
-        BlockPos supportPos = pos.relative(facing.getOpposite()); // Get the block it’s attached to
+        BlockPos supportPos = pos.relative(facing); // Get the block it’s attached to
         BlockState supportState = level.getBlockState(supportPos);
         return supportState.isFaceSturdy(level, supportPos, facing);
     }

@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "finerperipherals:chatbox",
+    "finerperipherals:geoexplorer",
+    "finerperipherals:eventrelayer",
+    "finerperipherals:holoitemdisplay"
+  ]
+}
