@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "facing=down": { "model": "finerperipherals:block/holoitemdisplay" },
+    "facing=up": { "model":  "finerperipherals:block/holoitemdisplay", "x": 180 },
+    "facing=south": { "model":  "finerperipherals:block/holoitemdisplay", "x": 90 },
+    "facing=north": { "model":  "finerperipherals:block/holoitemdisplay", "x": -90 },
+    "facing=west": { "model":  "finerperipherals:block/holoitemdisplay", "x": 90, "y": 90 },
+    "facing=east": { "model":  "finerperipherals:block/holoitemdisplay", "x": 90, "y": -90 }
+  }
+}

@@ -1,6 +1,0 @@
-{
-  "parent": "finerperipherals:block/turtle_upgrade_base_right",
-  "textures": {
-    "texture": "finerperipherals:block/chatbox"
-  }
-}

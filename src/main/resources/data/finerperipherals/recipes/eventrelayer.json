@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "DMD",
+    "MFM",
+    "DMD"
+  ],
+  "key": {
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "F": {
+      "item": "computercraft:wired_modem_full"
+    },
+    "M": {
+      "item": "computercraft:wireless_modem_advanced"
+    }
+  },
+  "result": {
+    "item": "finerperipherals:eventrelayer",
+    "count": 2
+  }
+}

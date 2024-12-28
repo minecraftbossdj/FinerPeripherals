@@ -1,6 +1,8 @@
 package com.awesoft.finerperipherals;
 
 import com.awesoft.finerperipherals.peripherals.chatbox.pocket.ChatBoxUpgrade;
+import com.awesoft.finerperipherals.peripherals.eventrelayer.pocket.eventRelayerUpgrade;
+import com.awesoft.finerperipherals.peripherals.geoexplorer.pocket.geoExplorerUpgrade;
 import dan200.computercraft.api.pocket.PocketUpgradeSerialiser;
 import dan200.computercraft.shared.platform.PlatformHelper;
 import dan200.computercraft.shared.platform.RegistrationHelper;
@@ -19,6 +21,12 @@ public class PocketRegistry {
 
         public static final RegistryEntry<PocketUpgradeSerialiser<ChatBoxUpgrade>> CHATBOX_POCKET =
                 REGISTRY.register("chatbox_pocket", () -> PocketUpgradeSerialiser.simpleWithCustomItem(ChatBoxUpgrade::new));
+
+        public static final RegistryEntry<PocketUpgradeSerialiser<geoExplorerUpgrade>> GEOEXPLORER_POCKET =
+                REGISTRY.register("geoexplorer_pocket", () -> PocketUpgradeSerialiser.simpleWithCustomItem(geoExplorerUpgrade::new));
+
+        public static final RegistryEntry<PocketUpgradeSerialiser<eventRelayerUpgrade>> EVENTRELAYER_POCKET =
+                REGISTRY.register("eventrelayer_pocket", () -> PocketUpgradeSerialiser.simpleWithCustomItem(eventRelayerUpgrade::new));
 
     }
 

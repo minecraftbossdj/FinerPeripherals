@@ -22,12 +22,12 @@
 			}
 		],
 		"client": [
-			"com.awesoft.finerperipherals.client.turtle.FinerPeripheralsClient"
+			"com.awesoft.finerperipherals.client.FinerPeripheralsClient"
 		]
 	},
 	"depends": {
 		"fabricloader": ">=0.15.11",
-		"minecraft": "~1.20.1",
+		"minecraft": "1.20.1",
 		"java": ">=17",
 		"fabric-api": "*"
 	},

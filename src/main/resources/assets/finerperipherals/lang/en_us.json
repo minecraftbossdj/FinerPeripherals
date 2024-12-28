@@ -2,5 +2,11 @@
   "block.finerperipherals.chatbox": "Chat Box",
   "upgrade.finerperipherals.chatbox_pocket.adjective": "Chatty",
   "upgrade.finerperipherals.chatbox_turtle.adjective": "Chatty",
-  "upgrade.finerperipherals.compass_turtle.adjective": "Directionally Aware"
+  "upgrade.finerperipherals.compass_turtle.adjective": "Directionally Aware",
+  "block.finerperipherals.geoexplorer": "Geo Explorer",
+  "upgrade.finerperipherals.geoexplorer_turtle.adjective": "Geological",
+  "upgrade.finerperipherals.geoexplorer_pocket.adjective": "Geological",
+  "block.finerperipherals.eventrelayer": "Event Relayer",
+  "upgrade.finerperipherals.eventrelayer_turtle.adjective": "Linked",
+  "upgrade.finerperipherals.eventrelayer_pocket.adjective": "Linked"
 }
