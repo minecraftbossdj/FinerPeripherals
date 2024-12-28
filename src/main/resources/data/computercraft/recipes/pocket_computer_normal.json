@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###",
+        "#R#",
+        "#P#"
+    ],
+    "key": {
+        "P": {
+            "tag": "c:glass_panes"
+        },
+        "R": {
+            "item": "minecraft:golden_apple"
+        },
+        "#": {
+            "tag": "c:stone"
+        }
+    },
+    "result": {
+        "item": "computercraft:pocket_computer_normal",
+        "count": 1
+    }
+}

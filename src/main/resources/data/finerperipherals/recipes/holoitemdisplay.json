@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#S#",
+    "SIS",
+    "#R#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:iron_ingot"
+    },
+    "I": {
+      "item": "minecraft:item_frame"
+    },
+    "S": {
+      "tag": "c:stones"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "result": {
+    "item": "finerperipherals:holoitemdisplay",
+    "count": 1
+  }
+}
