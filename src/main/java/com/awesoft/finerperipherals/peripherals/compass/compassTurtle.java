@@ -1,6 +1,7 @@
 package com.awesoft.finerperipherals.peripherals.compass;
 
 import com.awesoft.finerperipherals.peripherals.chatbox.chatBoxPeripheral;
+import com.mojang.authlib.GameProfile;
 import dan200.computercraft.api.peripheral.IPeripheral;
 import dan200.computercraft.api.turtle.AbstractTurtleUpgrade;
 import dan200.computercraft.api.turtle.ITurtleAccess;

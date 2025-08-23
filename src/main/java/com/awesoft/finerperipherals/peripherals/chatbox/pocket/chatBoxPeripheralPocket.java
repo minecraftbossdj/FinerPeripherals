@@ -45,17 +45,29 @@ public class chatBoxPeripheralPocket implements IPeripheral {
     }
 
     @LuaFunction
-    public final MethodResult sendMessage(String msg) {
+    public final MethodResult sendMessage(String msg, String username, String brackets) {
         access.getEntity().level().getServer().getPlayerList().getPlayers().forEach(player -> {
-            // Now, send the message
-            // To send a message, we need a Component(In this case a literal text component).
+            player.sendSystemMessage(Component.literal(brackets.charAt(0)+username+brackets.charAt(1)+" "+msg));
+        });
+        return MethodResult.of(true);
+    }
+
+    @LuaFunction
+    public final MethodResult sendMessageToPlayer(String msg, String plr, String username, String brackets) {
+        access.getEntity().level().getServer().getPlayerList().getPlayerByName(plr).sendSystemMessage(Component.literal(brackets.charAt(0)+username+brackets.charAt(1)+" "+msg));
+        return MethodResult.of(true);
+    }
+
+    @LuaFunction
+    public final MethodResult tellraw(String msg) {
+        access.getEntity().level().getServer().getPlayerList().getPlayers().forEach(player -> {
             player.sendSystemMessage(Component.literal(msg));
         });
         return MethodResult.of(true);
     }
 
     @LuaFunction
-    public final MethodResult sendMessageToPlayer(String msg, String plr) {
+    public final MethodResult tellrawToPlayer(String msg, String plr) {
         access.getEntity().level().getServer().getPlayerList().getPlayerByName(plr).sendSystemMessage(Component.literal(msg));
         return MethodResult.of(true);
     }

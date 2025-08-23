@@ -11,6 +11,9 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Collections;
+import java.util.Set;
+
 public class CompassPeripheral implements IPeripheral {
 
     BlockEntity blockEntity;
@@ -28,9 +31,8 @@ public class CompassPeripheral implements IPeripheral {
 
     @Override
     public boolean equals(IPeripheral other) {
-        return other instanceof chatBoxBlock;
+        return other instanceof CompassPeripheral;
     }
-
 
 
     @Override
@@ -40,10 +42,15 @@ public class CompassPeripheral implements IPeripheral {
     }
 
 
-
     @LuaFunction
-    public final MethodResult getRot() {
+    public final MethodResult getDirection () {
         return MethodResult.of(blockEntity.getBlockState().getValue(BlockStateProperties.HORIZONTAL_FACING).getName());
     }
+
+    @LuaFunction
+    public final MethodResult getDirectionInHub() {
+        return MethodResult.of(blockEntity.getLevel().getBlockEntity(blockEntity.getBlockPos()).getBlockState().getValue(BlockStateProperties.HORIZONTAL_FACING).getName());
+    }
+    //"in hub" means inside of peripheralium hub
 
 }

@@ -1,6 +1,7 @@
 package com.awesoft.finerperipherals;
 
 import com.awesoft.finerperipherals.peripherals.chatbox.turtle.chatBoxTurtle;
+import com.awesoft.finerperipherals.peripherals.enderChestTurtle.enderChestTurtle;
 import com.awesoft.finerperipherals.peripherals.compass.compassTurtle;
 import com.awesoft.finerperipherals.peripherals.eventrelayer.turtle.eventRelayerTurtle;
 import com.awesoft.finerperipherals.peripherals.geoexplorer.turtle.geoExplorerTurtle;
@@ -29,6 +30,9 @@ public class TurtleRegistry {
 
         public static final RegistryEntry<TurtleUpgradeSerialiser<eventRelayerTurtle>> EVENTRELAYER_TURTLE =
                 REGISTRY.register("eventrelayer_turtle", () -> TurtleUpgradeSerialiser.simpleWithCustomItem((id, item) -> new eventRelayerTurtle(new ResourceLocation("finerperipherals","eventrelayer_turtle"), TurtleUpgradeType.PERIPHERAL, new ItemStack(FinerPeripherals.EVENTRELAYER_BLOCK))));
+        public static final RegistryEntry<TurtleUpgradeSerialiser<enderChestTurtle>> ENDERCHEST_TURTLE =
+                REGISTRY.register("enderchest_turtle", () -> TurtleUpgradeSerialiser.simpleWithCustomItem((id, item) -> new enderChestTurtle(new ResourceLocation("finerperipherals","enderchest_turtle"), TurtleUpgradeType.PERIPHERAL, new ItemStack(Items.ENDER_CHEST))));
+
     }
 
     public static void register() {

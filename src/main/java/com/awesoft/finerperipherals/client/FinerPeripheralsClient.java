@@ -13,7 +13,6 @@ import dan200.computercraft.api.client.FabricComputerCraftAPIClient;
 import dan200.computercraft.api.client.turtle.TurtleUpgradeModeller;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
-import net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -23,10 +22,16 @@ public class FinerPeripheralsClient  implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         FinerPeripherals.LOGGER.info("client!");
+        //turtle
         FabricComputerCraftAPIClient.registerTurtleUpgradeModeller(TurtleRegistry.TurtleRegistryMain.CHATBOX_TURTLE.get(), new chatBoxRenderer());
         FabricComputerCraftAPIClient.registerTurtleUpgradeModeller(TurtleRegistry.TurtleRegistryMain.COMPASS_TURTLE.get(), TurtleUpgradeModeller.flatItem());
         FabricComputerCraftAPIClient.registerTurtleUpgradeModeller(TurtleRegistry.TurtleRegistryMain.GEOEXPLORER_TURTLE.get(), new geoExplorerRenderer());
         FabricComputerCraftAPIClient.registerTurtleUpgradeModeller(TurtleRegistry.TurtleRegistryMain.EVENTRELAYER_TURTLE.get(), new eventRelayerRenderer());
+        FabricComputerCraftAPIClient.registerTurtleUpgradeModeller(TurtleRegistry.TurtleRegistryMain.ENDERCHEST_TURTLE.get(), TurtleUpgradeModeller.sided(
+                new ResourceLocation(FinerPeripherals.MODID, "block/enderchest_upgrade_right"),
+                new ResourceLocation(FinerPeripherals.MODID, "block/enderchest_upgrade_left")
+        ));
+
         BlockEntityRenderers.register(FinerPeripherals.HOLOITEMDISPLAY_BE,  holoItemDisplayBlockEntityRenderer::new);
         registerReceiver();
     }

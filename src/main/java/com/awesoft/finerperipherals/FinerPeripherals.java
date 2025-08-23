@@ -37,7 +37,7 @@ import java.util.HashMap;
 public class FinerPeripherals implements ModInitializer {
     public static final Logger LOGGER = LoggerFactory.getLogger("finerperipherals");
 
-    static String MODID = "finerperipherals";
+    public static String MODID = "finerperipherals";
 
     public static final CreativeModeTab TAB = FabricItemGroup.builder()
             .icon(() -> new ItemStack(FinerPeripherals.CHATBOX_BLOCK))

@@ -1,5 +1,6 @@
 package com.awesoft.finerperipherals.peripherals.chatbox;
 
+import dan200.computercraft.api.lua.IArguments;
 import dan200.computercraft.api.lua.LuaFunction;
 import dan200.computercraft.api.lua.MethodResult;
 import dan200.computercraft.api.peripheral.IComputerAccess;
@@ -50,20 +51,33 @@ public class chatBoxPeripheral implements IPeripheral {
     @Override
     public void detach(@NotNull IComputerAccess computer) {
         chatBoxAttachedManager.getInstance().removeComputer(computer);
+
     }
 
     @LuaFunction
-    public final MethodResult sendMessage(String msg) {
+    public final MethodResult sendMessage(String msg, String username, String brackets) {
         blockEntity.getLevel().getServer().getPlayerList().getPlayers().forEach(player -> {
-            // Now, send the message
-            // To send a message, we need a Component(In this case a literal text component).
+            player.sendSystemMessage(Component.literal(brackets.charAt(0)+username+brackets.charAt(1)+" "+msg));
+        });
+        return MethodResult.of(true);
+    }
+
+    @LuaFunction
+    public final MethodResult sendMessageToPlayer(String msg, String plr, String username, String brackets) {
+        blockEntity.getLevel().getServer().getPlayerList().getPlayerByName(plr).sendSystemMessage(Component.literal(brackets.charAt(0)+username+brackets.charAt(1)+" "+msg));
+        return MethodResult.of(true);
+    }
+
+    @LuaFunction
+    public final MethodResult tellraw(String msg) {
+        blockEntity.getLevel().getServer().getPlayerList().getPlayers().forEach(player -> {
             player.sendSystemMessage(Component.literal(msg));
         });
         return MethodResult.of(true);
     }
 
     @LuaFunction
-    public final MethodResult sendMessageToPlayer(String msg, String plr) {
+    public final MethodResult tellrawToPlayer(String msg, String plr) {
         blockEntity.getLevel().getServer().getPlayerList().getPlayerByName(plr).sendSystemMessage(Component.literal(msg));
         return MethodResult.of(true);
     }
