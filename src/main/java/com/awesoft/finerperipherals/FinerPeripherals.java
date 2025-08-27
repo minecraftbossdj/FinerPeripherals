@@ -13,6 +13,9 @@ import com.awesoft.finerperipherals.peripherals.geoexplorer.geoExplorerPeriphera
 import com.awesoft.finerperipherals.peripherals.holoitemdisplay.holoItemDisplayBlock;
 import com.awesoft.finerperipherals.peripherals.holoitemdisplay.holoItemDisplayBlockEntity;
 import com.awesoft.finerperipherals.peripherals.holoitemdisplay.holoItemDisplayPeripheral;
+import com.awesoft.finerperipherals.peripherals.playerfinder.playerFinderBlock;
+import com.awesoft.finerperipherals.peripherals.playerfinder.playerFinderBlockEntity;
+import com.awesoft.finerperipherals.peripherals.playerfinder.playerFinderPeripheral;
 import dan200.computercraft.api.peripheral.PeripheralLookup;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
@@ -83,6 +86,7 @@ public class FinerPeripherals implements ModInitializer {
 
     public static final chatBoxBlock CHATBOX_BLOCK = new chatBoxBlock(BlockBehaviour.Properties.copy(Blocks.STONE));
     public static final geoExplorerBlock GEOEXPLORER_BLOCK = new geoExplorerBlock(BlockBehaviour.Properties.copy(Blocks.STONE));
+    public static final playerFinderBlock PLAYER_FINDER_BLOCK = new playerFinderBlock(BlockBehaviour.Properties.copy(Blocks.STONE));
     public static final eventRelayerBlock EVENTRELAYER_BLOCK = new eventRelayerBlock(BlockBehaviour.Properties.copy(Blocks.STONE));
     public static final holoItemDisplayBlock HOLOITEMDISPLAY_BLOCK = new holoItemDisplayBlock(BlockBehaviour.Properties.copy(Blocks.STONE));
 
@@ -90,6 +94,7 @@ public class FinerPeripherals implements ModInitializer {
     {
         Registry.register(BuiltInRegistries.BLOCK,new ResourceLocation("finerperipherals","chatbox"),CHATBOX_BLOCK);
         Registry.register(BuiltInRegistries.BLOCK,new ResourceLocation("finerperipherals","geoexplorer"),GEOEXPLORER_BLOCK);
+        Registry.register(BuiltInRegistries.BLOCK,new ResourceLocation("finerperipherals","player_finder"),PLAYER_FINDER_BLOCK);
         Registry.register(BuiltInRegistries.BLOCK,new ResourceLocation("finerperipherals","eventrelayer"),EVENTRELAYER_BLOCK);
         Registry.register(BuiltInRegistries.BLOCK,new ResourceLocation("finerperipherals","holoitemdisplay"),HOLOITEMDISPLAY_BLOCK);
 
@@ -101,6 +106,7 @@ public class FinerPeripherals implements ModInitializer {
         //register block items
         Registry.register(BuiltInRegistries.ITEM,new ResourceLocation("finerperipherals","chatbox"),new BlockItem(CHATBOX_BLOCK,new Item.Properties()));
         Registry.register(BuiltInRegistries.ITEM,new ResourceLocation("finerperipherals","geoexplorer"),new BlockItem(GEOEXPLORER_BLOCK,new Item.Properties()));
+        Registry.register(BuiltInRegistries.ITEM,new ResourceLocation("finerperipherals","player_finder"),new BlockItem(PLAYER_FINDER_BLOCK,new Item.Properties()));
         Registry.register(BuiltInRegistries.ITEM,new ResourceLocation("finerperipherals","eventrelayer"),new BlockItem(EVENTRELAYER_BLOCK,new Item.Properties()));
         Registry.register(BuiltInRegistries.ITEM,new ResourceLocation("finerperipherals","holoitemdisplay"),new BlockItem(HOLOITEMDISPLAY_BLOCK,new Item.Properties()));
 
@@ -120,6 +126,7 @@ public class FinerPeripherals implements ModInitializer {
     {
         PeripheralLookup.get().registerForBlockEntity((a,b)->new chatBoxPeripheral(a),CHATBOX_BE);
         PeripheralLookup.get().registerForBlockEntity((a,b)->new geoExplorerPeripheral(a),GEOEXPLORER_BE);
+        PeripheralLookup.get().registerForBlockEntity((a,b)->new playerFinderPeripheral(a),PLAYER_FINDER_BE);
         PeripheralLookup.get().registerForBlockEntity((a,b)->new eventRelayerPeripheral(),EVENTRELAYER_BE);
         PeripheralLookup.get().registerForBlockEntity((a,b)->new holoItemDisplayPeripheral(a),HOLOITEMDISPLAY_BE);
     }
@@ -134,6 +141,11 @@ public class FinerPeripherals implements ModInitializer {
             BuiltInRegistries.BLOCK_ENTITY_TYPE,
             new ResourceLocation("finerperipherals", "geoexplorer_block_entity"),
             FabricBlockEntityTypeBuilder.create(geoExplorerBlockEntity::new, GEOEXPLORER_BLOCK).build()
+    );
+    public static BlockEntityType<playerFinderBlockEntity> PLAYER_FINDER_BE = Registry.register(
+            BuiltInRegistries.BLOCK_ENTITY_TYPE,
+            new ResourceLocation("finerperipherals", "player_finder_block_entity"),
+            FabricBlockEntityTypeBuilder.create(playerFinderBlockEntity::new, PLAYER_FINDER_BLOCK).build()
     );
     public static BlockEntityType<eventRelayerBlockEntity> EVENTRELAYER_BE = Registry.register(
             BuiltInRegistries.BLOCK_ENTITY_TYPE,

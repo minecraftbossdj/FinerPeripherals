@@ -3,7 +3,7 @@
 	"id": "finerperipherals",
 	"version": "${version}",
 	"name": "Finer Peripherals",
-	"description": "yeaaa... ngl idk what this....",
+	"description": "Finer Peripherals! now with regret!",
 	"authors": [
 		"awesomebossdj7"
 	],
@@ -12,7 +12,7 @@
 		"sources": "https://github.com/FabricMC/fabric-example-mod"
 	},
 	"license": "CC0-1.0",
-	"icon": "assets/ccdrones/icon.png",
+	"icon": "assets/finerperipherals/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
